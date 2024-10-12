@@ -1,4 +1,5 @@
 import Card from '../components/Card'; 
+import LocalConcerts from '../components/localConcerts';
 
 export default function Home() {
   return (
@@ -24,12 +25,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Add a margin or padding to separate the hero section and the card */}
-      <div className="join-horizontal mt-12 flex justify-center gap-x-6">
-        <Card />
-        <Card />
-        <Card />
-      </div>
+
+        <LocalConcerts />
     </div>
   );
 }

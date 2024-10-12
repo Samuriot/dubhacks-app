@@ -1,21 +1,29 @@
-const Card = () => {
-    return (
-      <div className="card bg-base-100 w-96 shadow-xl">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+// /components/Card.tsx
+
+import React from 'react';
+
+// Define the props for the Card component
+interface CardProps {
+  concertname: string;
+  venue: string;
+  image_url: string;
+}
+
+const Card: React.FC<CardProps> = ({ concertname, venue, image_url }) => {
+  return (
+    <div className="card bg-base-100 w-96 shadow-xl">
+      <figure>
+        <img src={image_url} alt={concertname} />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{concertname}</h2>
+        <p>{venue}</p>
+        <div className="card-actions justify-end">
+          <button className="btn btn-primary">Get Tickets</button>
         </div>
       </div>
-    );
-  };
-  
+    </div>
+  );
+};
+
 export default Card;
