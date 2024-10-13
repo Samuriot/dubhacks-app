@@ -13,6 +13,8 @@ interface Concert {
     concertgenre: string;
     concertstarttime: string;
     performername: string;
+    performerid: string;
+    performerimage: string;
   }
 
 const LocalConcerts: React.FC = () => {
@@ -35,7 +37,7 @@ const LocalConcerts: React.FC = () => {
                 concertgenre,
                 concertstarttime,
                 venue:venueid (venuename),
-                performer:performerid (performername)
+                performer:performerid (performername, performerimage)
               `);
 
         console.log("Supabase Data:", data);
@@ -54,7 +56,8 @@ const LocalConcerts: React.FC = () => {
                 concertgenre: concert.concertgenre,
                 concertstarttime: concert.concertstarttime,
                 performername: concert.performer.performername,
-                
+                performerid: concert.performerid,
+                performerimage: concert.performer.performerimage || '../assets/images/hero.webp',
             }));
 
             setConcerts(formattedConcerts || []);
@@ -82,7 +85,7 @@ const LocalConcerts: React.FC = () => {
                 key={concert.concertid}
                 concertname={concert.performername}
                 venue={concert.venuename}
-                image_url='../assets/images/hero.webp'
+                image_url={concert.performerimage}
             />
         ))
         ) : (

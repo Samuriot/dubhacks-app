@@ -12,7 +12,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ concertname, venue, image_url }) => {
   return (
     <div className="card bg-base-100 w-96 shadow-xl">
-      <figure>
+      <figure className = "max-h-60">
         <img src={image_url} alt={concertname} />
       </figure>
       <div className="card-body">
